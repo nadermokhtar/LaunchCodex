@@ -1,3 +1,5 @@
+[![Codeship Status for nadermokhtar/LaunchCodex](https://app.codeship.com/projects/844c76d0-0271-0137-326a-2655239ee73b/status?branch=master)](/projects/325086)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
