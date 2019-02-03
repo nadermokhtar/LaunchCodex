@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import Todos from './Todos'
+import React, { Component } from "react";
+import Todos from "./Todos";
+import InputContainer from "./InputContainer"
 
 class App extends Component {
   constructor(props) {
@@ -7,30 +8,58 @@ class App extends Component {
     this.state = {
       todos: [
         {
-          id:1,
-          title:'take out the trash',
-          completed: false
+          id: 1,
+          user_id: 1,
+          completed: false,
+          body: "take out the trash",
+          type: "task",
+          due: "2/19/19",
+          modifier: "*",
+          task_id: 0
         },
         {
           id: 2,
-          title: 'Kill the monkeys',
-          completed: true
+          user_id: 1,
+          completed: false,
+          body: "Kill the monkeys",
+          type: "task",
+          due: "2/19/19",
+          modifier: "",
+          task_id: 0
         },
         {
           id: 3,
-          title: 'Find Megatron',
-          completed: false
+          user_id: 1,
+          completed: false,
+          body: "Find Megatron",
+          type: "task",
+          due: "2/19/19",
+          modifier: "!",
+          task_id: 0
         }
       ]
-    }
+    };
+    this.markComplete = this.markComplete.bind(this);
   }
-  render(){
+  markComplete(id) {console.log("hello");
+  }
+  render() {
     return (
-    <div>
-        <Todos todos={this.state.todos }/>
-    </div>
-    )
+      <div className="App">
+        <InputContainer />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+      </div>
+    );
   }
 }
 
-export default App
+export default App;
+
+// this.setState({
+//   todos: this.state.todos.map(todo => {
+//     if (todo.id === id) {
+//       todo.completed = !todo.completed;
+//     }
+//     return todo;
+//   })
+// });
