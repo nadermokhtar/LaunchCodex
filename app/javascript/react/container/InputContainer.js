@@ -13,7 +13,7 @@ class InputContainer extends Component {
 
       <div className="row">
         <div className="small-8 small-centered columns">
-        type of task/ modifier/input field /date field / add button
+        category/Priority(1-3)/input field /date field / add button
         </div>
       </div>
     )

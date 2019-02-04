@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Todos from "./Todos";
-import InputContainer from "./InputContainer"
+import Actions from "./Actions";
+import InputContainer from "./InputContainer";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
+      actions: [
         {
           id: 1,
           user_id: 1,
@@ -20,7 +20,7 @@ class App extends Component {
         {
           id: 2,
           user_id: 1,
-          completed: false,
+          completed: true,
           body: "Kill the monkeys",
           type: "task",
           due: "2/19/19",
@@ -41,25 +41,41 @@ class App extends Component {
     };
     this.markComplete = this.markComplete.bind(this);
   }
-  markComplete(id) {console.log("hello");
+  markComplete(id) {
+    this.setState({
+      actions: this.state.actions.map(action => {
+        if (action.id === id) {
+          action.completed = !action.completed;
+        }
+        return action;
+      })
+    });
   }
   render() {
     return (
       <div className="App">
-        <InputContainer />
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <div className="row">
+          <div className="small-6 large-2 columns">
+            Navigation
+            <br />
+            Yesterday
+            <br />
+            Maybe some day?
+          </div>
+          <div className="small-6 large-8 columns">
+            <InputContainer />
+            <Actions
+              actions={this.state.actions}
+              markComplete={this.markComplete}
+            />
+          </div>
+          <div className="small-12 large-2 columns">
+            Side bar info(cal+weather)
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 export default App;
-
-// this.setState({
-//   todos: this.state.todos.map(todo => {
-//     if (todo.id === id) {
-//       todo.completed = !todo.completed;
-//     }
-//     return todo;
-//   })
-// });
