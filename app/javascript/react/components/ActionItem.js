@@ -19,11 +19,8 @@ export class ActionItem extends Component {
       <div style={this.getStyle()}>
         <p>
           <input type="checkbox" onChange={this.props.markComplete} />
-          {type}
-          <br />
-          {body}
-          {completed}
-          <i className="fas fa-trash-alt" />
+          {type} {body}
+          {completed}{"  "} <button className="button tiny round alert">X</button>
         </p>
       </div>
     );
