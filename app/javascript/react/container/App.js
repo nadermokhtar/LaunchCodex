@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Actions from "./Actions";
 import InputContainer from "./InputContainer";
+import Time from "../components/Time";
 
 class App extends Component {
   constructor(props) {
@@ -55,23 +56,33 @@ class App extends Component {
     return (
       <div className="App">
         <div className="row">
-          <div className="small-6 large-2 columns">
-            Navigation
-            <br />
-            Yesterday
-            <br />
-            Maybe some day?
+          <div className="large-3 columns ">
+            <div className="panel">
+              <div className="section-container vertical-nav">
+                <section className="section">Navigation</section>
+                <section className="section">Yesterday</section>
+                <section className="section">Maybe some day?</section>
+              </div>
+            </div>
           </div>
-          <div className="small-6 large-8 columns">
-            <InputContainer />
-            <Actions
-              actions={this.state.actions}
-              markComplete={this.markComplete}
-            />
+          <div className="large-6 columns">
+            <div class="row">
+              <InputContainer />
+              <Actions
+                actions={this.state.actions}
+                markComplete={this.markComplete}
+              />
+            </div>
           </div>
-          <div className="small-12 large-2 columns">
-            Side bar info(cal+weather)
-          </div>
+          <aside className="large-3 columns hide-for-small">
+            <Time className="panel success" />
+            <p>
+              <img src="https://placehold.it/300x440&text=[weather widget]" />
+            </p>
+            <p>
+              <img src="https://placehold.it/300x440&text=[Calandar widget]" />
+            </p>
+          </aside>
         </div>
       </div>
     );

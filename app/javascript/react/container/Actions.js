@@ -21,7 +21,7 @@ class Actions extends Component {
     return(
       <div className="row">
         <div className="small-8 small-centered columns">
-        {actions}
+          {actions}
         </div>
       </div>
     )
