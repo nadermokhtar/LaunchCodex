@@ -6,7 +6,10 @@ class Time extends React.Component {
     render() {
 
         return (
-            <Moment format="YYYY-MM-DD HH:mm"></Moment>
+            <div className="callout success">
+                <Moment format="YYYY-MM-DD HH:mm"></Moment>
+            </div>
+
         );
     }
 }

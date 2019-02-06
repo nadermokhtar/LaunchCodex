@@ -54,35 +54,28 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <div className="row">
-          <div className="large-3 columns ">
-            <div className="panel">
-              <div className="section-container vertical-nav">
-                <section className="section">Navigation</section>
-                <section className="section">Yesterday</section>
-                <section className="section">Maybe some day?</section>
-              </div>
-            </div>
-          </div>
-          <div className="large-6 columns">
-            <div class="row">
-              <InputContainer />
-              <Actions
-                actions={this.state.actions}
-                markComplete={this.markComplete}
-              />
-            </div>
-          </div>
-          <aside className="large-3 columns hide-for-small">
-            <Time className="panel success" />
-            <p>
-              <img src="https://placehold.it/300x440&text=[weather widget]" />
-            </p>
-            <p>
-              <img src="https://placehold.it/300x440&text=[Calandar widget]" />
-            </p>
-          </aside>
+      <div className="grid-x grid-margin-x ">
+        <div className="cell medium-6 large-8">
+          <InputContainer />
+
+          <button className="button small">Yesterday</button>
+
+          <button className="button small">Maybe Someday?</button>
+
+          <Actions
+            actions={this.state.actions}
+            markComplete={this.markComplete}
+          />
+        </div>
+
+        <div className="cell medium-2 large-2">
+          <Time />
+          <p>
+            <img src="https://placehold.it/300x440&text=[weather widget]" />
+          </p>
+          <p>
+            <img src="https://placehold.it/300x440&text=[Calandar widget]" />
+          </p>
         </div>
       </div>
     );

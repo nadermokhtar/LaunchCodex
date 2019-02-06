@@ -1,54 +1,61 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>LaunchCodex</title>
-  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <title><%= content_for?(:title) ? yield(:title) : "LaunchCodex" %></title>
+ <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">LaunchCodex</a></h1>
-      </li>
+ <body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+        <h1 ><a  class="title" href="/">LaunchCodex</a></h1>
+  </div>
+
+
+
+
+
+  <section class="top-bar-right">
+    <ul class="menu">
+      <%- if current_user -%>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <%- else -%>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
     </ul>
+  </section>
+</nav>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
+<%- flash.each do |key, value| -%>
+  <div class="flash flash-<%= key %>">
+    <%= value %>
+  </div>
+<%- end -%>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
+<%= yield %>
+
+<%= javascript_include_tag 'application' %>
+
+<%- if Rails.env.development? || Rails.env.test? -%>
+  <%= javascript_tag do %>
+    window.railsEnv = '<%= Rails.env %>'
   <%- end -%>
+<%- end -%>
+<%= javascript_pack_tag 'application' %>
 
-  <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-
-  <%- if Rails.env.development? || Rails.env.test? -%>
-    <%= javascript_tag do %>
-      window.railsEnv = '<%= Rails.env %>'
-    <%- end -%>
-  <%- end -%>
-  <%= javascript_pack_tag 'application' %>
-
-  <%= yield :extra_footer %>
+<%= yield :extra_footer %>
 </body>
+
+
 </html>

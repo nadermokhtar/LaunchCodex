@@ -19,8 +19,8 @@ class Actions extends Component {
       />)
     })
     return(
-      <div className="row">
-        <div className="small-8 small-centered columns">
+      <div className="grid-x grid-margin-x">
+        <div className="cell auto">
           {actions}
         </div>
       </div>

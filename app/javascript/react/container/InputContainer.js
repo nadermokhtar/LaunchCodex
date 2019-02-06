@@ -24,12 +24,13 @@ class InputContainer extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="small-8 small-centered columns">
+      <div className="grid-x grid-margin-x">
+        <div className="cell auto">
           category/Priority(1-3) /date field (on hold feature)/
-          <div className="small-8 small-centered columns">
+          <div className="cell auto">
             <form className="input" onSubmit={this.onSubmit}>
               <input value={this.state.term} onChange={this.onChange} />
+
               <button className="button tiny">Add</button>
             </form>
           </div>
