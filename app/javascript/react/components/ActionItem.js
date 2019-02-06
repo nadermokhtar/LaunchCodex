@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 export class ActionItem extends Component {
   getStyle = () => {
     return {
-      background: "#F8ECC2",
+      background: "#fffcce",
       padding: "10px",
-      borderBottom: "1px #ccc dotted",
+      borderBottom: "2px solid #dddddd;",
       textDecoration: this.props.action.completed ? "line-through" : "none"
     };
   };
@@ -16,12 +16,22 @@ export class ActionItem extends Component {
     console.log(this.props.action);
 
     return (
-      <div style={this.getStyle()}>
-        <p>
-          <input type="checkbox" onChange={this.props.markComplete} />
-          {type} {body}
-          {completed}{"  "} <button className="button tiny round alert">X</button>
-        </p>
+      <div className="note-book">
+        <div style={this.getStyle()}>
+          <p>
+
+
+            <input type="checkbox" onChange={this.props.markComplete} />
+            {type} {body}
+            {completed}
+            {"  "}{" "}
+            <a href="#" className="button tiny round alert">
+              X
+            </a>
+
+          </p>
+
+        </div>
       </div>
     );
   }

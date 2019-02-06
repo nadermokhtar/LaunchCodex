@@ -15,6 +15,9 @@
  *= require foundation_and_overrides
 
  */
- *{
+ .title{
   font-family: 'Kaushan Script', cursive;
+}
+ *{
+  font-family: 'Roboto', sans-serif;
 }
