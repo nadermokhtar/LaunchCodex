@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user1 = User.create(email: 'joe@gmail.com', password: 'password')
+user2 = User.create(email: 'mike@gmail.com', password:'password')
+user3 = User.create(email: 'casi@gmail.com', password: 'password')
+user4 = User.create(email: 'nick@gmail.com', password: 'password')
+user5 = User.create(email: 'raj@gmail.com', password:'password')
+user6 = User.create(email: 'riley@gmail.com', password: 'password')
+user7 = User.create(email: 'gil@gmail.com', password: 'password')
+user8 = User.create(email: 'gabi@gmail.com', password:'password')
+user9 = User.create(email: 'alex@gmail.com', password: 'password')
+
+
+action1 = Action.create(body:"Some task", category: "task", priority: 0 , date_due: "2019-02-07", user_id:1)
+action2 = Action.create!(body:"IDK task", category: "task", priority: 0 , date_due: "2019-02-07", user_id:1)

@@ -31,7 +31,9 @@ class InputContainer extends Component {
             <form className="input" onSubmit={this.onSubmit}>
               <input value={this.state.term} onChange={this.onChange} />
 
-              <button className="button tiny">Add</button>
+              <button className="button round">
+                <i class="fas fa-pen-fancy" />
+              </button>
             </form>
           </div>
         </div>

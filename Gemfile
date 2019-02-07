@@ -57,6 +57,7 @@ gem 'database_cleaner', group: [:development, :test]
 gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
+gem 'omniauth-google-oauth2'
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
 gem 'webpacker', '~> 3.3'
