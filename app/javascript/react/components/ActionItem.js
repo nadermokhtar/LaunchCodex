@@ -16,7 +16,7 @@ export class ActionItem extends Component {
     console.log(this.props.action);
 
     return (
-      <div className="note-book">
+      <div className="card1">
         <div style={this.getStyle()}>
           <p>
 
