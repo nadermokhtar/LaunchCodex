@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 export class ActionItem extends Component {
   getStyle = () => {
     return {
-      background: "#fffcce",
+      background: "#ffffff",
       padding: "10px",
-      borderBottom: "2px solid #dddddd;",
+      borderBottom: "2px solid #000000;",
       textDecoration: this.props.action.completed ? "line-through" : "none"
     };
   };
@@ -19,8 +19,6 @@ export class ActionItem extends Component {
       <div className="card1">
         <div style={this.getStyle()}>
           <p>
-
-
             <input type="checkbox" onChange={this.props.markComplete} />
             {type} {body}
             {completed}
@@ -28,9 +26,7 @@ export class ActionItem extends Component {
             <a href="#" className="button tiny round alert">
               X
             </a>
-
           </p>
-
         </div>
       </div>
     );
