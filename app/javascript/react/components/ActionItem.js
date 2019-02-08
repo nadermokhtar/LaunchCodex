@@ -16,11 +16,11 @@ export class ActionItem extends Component {
     console.log(this.props.action);
 
     return (
-      <div className="card1">
+      <div className="card2">
         <div style={this.getStyle()}>
           <p>
             <input type="checkbox" onChange={this.props.markComplete} />
-            {type} {body}
+            <b className="card1">{type}</b> {body}
             {completed}
             {"  "}{" "}
             <a href="#" className="button tiny round alert">

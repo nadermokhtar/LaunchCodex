@@ -6,7 +6,7 @@ class Time extends React.Component {
     render() {
 
         return (
-            <div className="card1">
+            <div className="card2">
                 <Moment format="YYYY-MM-DD HH:mm"></Moment>
             </div>
 

@@ -56,7 +56,7 @@ class App extends Component {
     return (
       <div className="grid-x grid-margin-x ">
         <div className="cell medium-6 large-8">
-          <InputContainer />
+          <InputContainer  />
 
           <button className="button small">Yesterday</button>
 
@@ -68,12 +68,13 @@ class App extends Component {
           />
         </div>
 
-        <div className="cell medium-2 large-2">
+        <div className="cell small-hidden medium-2 large-2">
           <Time />
-          <p>
-            <img src="https://placehold.it/300x440&text=[weather widget]" />
+          <br/>
+          <p className="card2">
+            <img src="https://placehold.it/300x75&text=[weather widget]" />
           </p>
-          <p>
+          <p className="card2">
             <img src="https://placehold.it/300x440&text=[Calandar widget]" />
           </p>
         </div>
