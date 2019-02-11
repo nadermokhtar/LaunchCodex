@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_02_05_170543) do
     t.string "category", null: false
     t.boolean "completed", default: false
     t.integer "priority", null: false
-    t.date "date_due", null: false
+    t.date "date_due"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

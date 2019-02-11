@@ -10,53 +10,94 @@ class App extends Component {
       actions: [
         {
           id: 1,
-          user_id: 1,
-          completed: false,
-          body: "take out the trash",
-          type: "task",
-          due: "2/19/19",
-          modifier: "*",
-          task_id: 0
+          body: "IDK task",
+          category: "task",
+          priority: 0,
+          date_due: Date.today,
+          user_id: 1
         },
         {
           id: 2,
-          user_id: 1,
-          completed: true,
-          body: "Kill the monkeys",
-          type: "task",
-          due: "2/19/19",
-          modifier: "",
-          task_id: 0
+          body: "IDK task",
+          category: "task",
+          priority: 0,
+          date_due: Date.today,
+          user_id: 1
         },
         {
           id: 3,
-          user_id: 1,
-          completed: false,
-          body: "Find Megatron",
-          type: "task",
-          due: "2/19/19",
-          modifier: "!",
-          task_id: 0
-        }
-      ]
+          body: "IDK task",
+          category: "task",
+          priority: 0,
+          date_due: Date.today,
+          user_id: 1
+        },
+        {
+          id: 4,
+          body: "Some task",
+          category: "task",
+          priority: 0,
+          date_due: Date.today,
+          user_id: 1
+        },
+        {
+          id: 5,
+          body: "IDK task",
+          category: "task",
+          priority: 0,
+          date_due: Date.today,
+          user_id: 1
+        } ]
     };
     this.markComplete = this.markComplete.bind(this);
+    this.addNewAction = this.addNewAction.bind(this);
   }
+  componentDidMount() {
+    // fetch("/api/v1/users")
+    //   .then(response => response.json())
+    //   .then(body => {
+    //     let allActions = body.actions;
+    //     this.setState({ actions: allActions });
+    //   });
+  }
+  addNewAction(formPayload) {
+    // fetch("/api/v1/actions", {
+    //   method: "POST",
+    //   body: JSON.stringify(formPayload)
+    // })
+    //   .then(response => {
+    //     if (response.ok) {
+    //       return response;
+    //     } else {
+    //       let errorMessage = `${response.status} (${response.statusText})`,
+    //         error = new Error(errorMessage);
+    //       throw error;
+    //     }
+    //   })
+    //   .then(response => response.json())
+    //   .then(body => {
+    //     let currentactions = this.state.actions;
+    //     this.setState({ actions: currentactions.concat(body) });
+    //   });
+    let currentactions = this.state.actions;
+    this.setState({ actions: currentactions.concat(formPayload) });
+  }
+
   markComplete(id) {
-    this.setState({
-      actions: this.state.actions.map(action => {
-        if (action.id === id) {
-          action.completed = !action.completed;
-        }
-        return action;
-      })
-    });
+    // this.setState({
+    //   actions: this.state.actions.map(action => {
+    //     if (action.id === id) {
+    //       action.completed = !action.completed;
+    //     }
+    //     return action;
+    //   })
+    // });
   }
   render() {
     return (
       <div className="grid-x grid-margin-x ">
         <div className="cell medium-6 large-8">
-          <InputContainer  />
+          <InputContainer addNewAction={this.addNewAction} />
 
           <button className="button small">Yesterday</button>
 
@@ -70,7 +111,7 @@ class App extends Component {
 
         <div className="cell small-hidden medium-2 large-2">
           <Time />
-          <br/>
+          <br />
           <p className="card2">
             <img src="https://placehold.it/300x75&text=[weather widget]" />
           </p>

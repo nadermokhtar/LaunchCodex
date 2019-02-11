@@ -5,7 +5,7 @@ class CreateActions < ActiveRecord::Migration[5.2]
       t.string :category, null: false
       t.boolean :completed, default: false
       t.integer :priority, null: false
-      t.date :date_due, null: false
+      t.date :date_due
       t.belongs_to :user, null: false
 
       t.timestamps

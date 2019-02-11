@@ -6,14 +6,14 @@ export class ActionItem extends Component {
     return {
       background: "#ffffff",
       padding: "10px",
-      borderBottom: "2px solid #000000;",
+      borderBottom: "2px solid #000000",
       textDecoration: this.props.action.completed ? "line-through" : "none"
     };
   };
 
   render() {
     const { id, body, completed, type } = this.props.action;
-    console.log(this.props.action);
+
 
     return (
       <div className="card2">
