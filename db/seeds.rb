@@ -1,5 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# This file should contain all the record creation needed to seed the database with its default values.
 #
 # Examples:
 #
@@ -17,5 +17,29 @@ user8 = User.create(email: 'gabi@gmail.com', password:'password')
 user9 = User.create(email: 'alex@gmail.com', password: 'password')
 
 
-action1 = Action.create(body:"Some task", category: "task", priority: 0 , date_due: "2019-02-07", user_id:1)
-action2 = Action.create!(body:"IDK task", category: "task", priority: 0 , date_due: "2019-02-07", user_id:1)
+action1 = Action.create(body:"Some task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action2 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action3 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action4 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action5 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action6 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action7 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action8 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action9 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action10 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action11 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action12 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action13 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1)
+action14 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1)
+action15 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1)
+action16 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1)
+action17 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1)
+action18 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1)
+action19 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1)
+action20 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1)
+action21 = Action.create(body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1)
+action22 = Action.create(body:"IDK task", category: "task", priority: 0 , user_id:1)
+action23 = Action.create(body:"IDK task", category: "task", priority: 0 , user_id:1)
+action24 = Action.create(body:"IDK task", category: "task", priority: 0 , user_id:1)
+
+# {body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"Some task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.today, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1},{body:"IDK task", category: "task", priority: 0 , date_due: Date.yesterday, user_id:1},{body:"IDK task", category: "task", priority: 0 , user_id:1},{body:"IDK task", category: "task", priority: 0 , user_id:1},{body:"IDK task", category: "task", priority: 0 , user_id:1}
