@@ -7,91 +7,91 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      actions: [
-        {
-          id: 1,
-          body: "IDK task",
-          category: "task",
-          priority: 0,
-          date_due: Date.today,
-          user_id: 1
-        },
-        {
-          id: 2,
-          body: "IDK task",
-          category: "task",
-          priority: 0,
-          date_due: Date.today,
-          user_id: 1
-        },
-        {
-          id: 3,
-          body: "IDK task",
-          category: "task",
-          priority: 0,
-          date_due: Date.today,
-          user_id: 1
-        },
-        {
-          id: 4,
-          body: "Some task",
-          category: "task",
-          priority: 0,
-          date_due: Date.today,
-          user_id: 1
-        },
-        {
-          id: 5,
-          body: "IDK task",
-          category: "task",
-          priority: 0,
-          date_due: Date.today,
-          user_id: 1
-        } ]
+      actions: [ ]
     };
     this.markComplete = this.markComplete.bind(this);
     this.addNewAction = this.addNewAction.bind(this);
+    this.delete = this.delete.bind(this)
   }
   componentDidMount() {
-    // fetch("/api/v1/users")
-    //   .then(response => response.json())
-    //   .then(body => {
-    //     let allActions = body.actions;
-    //     this.setState({ actions: allActions });
-    //   });
+    fetch("/api/v1/actions")
+      .then(response => response.json())
+      .then(body => {
+        let allActions = body;
+
+        this.setState({ actions: allActions });
+      });
   }
   addNewAction(formPayload) {
-    // fetch("/api/v1/actions", {
-    //   method: "POST",
-    //   body: JSON.stringify(formPayload)
-    // })
-    //   .then(response => {
-    //     if (response.ok) {
-    //       return response;
-    //     } else {
-    //       let errorMessage = `${response.status} (${response.statusText})`,
-    //         error = new Error(errorMessage);
-    //       throw error;
-    //     }
-    //   })
-    //   .then(response => response.json())
-    //   .then(body => {
-    //     let currentactions = this.state.actions;
-    //     this.setState({ actions: currentactions.concat(body) });
-    //   });
-    let currentactions = this.state.actions;
-    this.setState({ actions: currentactions.concat(formPayload) });
+
+    fetch("/api/v1/actions", {
+      method: "POST",
+      body: JSON.stringify(formPayload),
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+
+        let currentactions = this.state.actions;
+        this.setState({ actions: currentactions.concat(body) });
+      });
   }
 
   markComplete(id) {
-    // this.setState({
-    //   actions: this.state.actions.map(action => {
-    //     if (action.id === id) {
-    //       action.completed = !action.completed;
-    //     }
-    //     return action;
-    //   })
-    // });
+    this.setState({
+      actions: this.state.actions.map(action => {
+        if (action.id === id) {
+          action.completed = !action.completed;
+        }
+        return action;
+      })
+    });
+  }
+  delete(id){
+    console.log(id);
+    fetch(`/api/v1/actions/${id}`, {
+      method: "DELETE",
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+      // ,
+      // 'body': JSON.stringify({
+      //   'action': { 'id': id}
+      // })
+    })
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+    // fetch("/api/v1/actions")
+    //   .then(response => response.json())
+    //   .then(body => {
+    //     let allActions = body;
+
+    //     this.setState({ actions: allActions });
+    //   });
+
+
   }
   render() {
     return (
@@ -99,13 +99,16 @@ class App extends Component {
         <div className="cell medium-6 large-8">
           <InputContainer addNewAction={this.addNewAction} />
 
-          <button className="button small">Yesterday</button>
+          <button className="button small" toggleYesterday={this.toggleYesterday}><i className="fas fa-arrow-circle-left"></i>Yesterday</button>
 
-          <button className="button small">Maybe Someday?</button>
-
+          <button className="button small" toggleSomeday={this.toggleSomeday}>Maybe Someday?</button>
+          <button className="button small" toggleNow={this.toggleNow}> <i className="fas fa-bolt"></i>Now?</button>
           <Actions
             actions={this.state.actions}
             markComplete={this.markComplete}
+            delete= {
+              this.delete
+            }
           />
         </div>
 
