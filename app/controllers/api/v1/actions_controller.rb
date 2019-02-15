@@ -17,18 +17,18 @@ class Api::V1::ActionsController < ApplicationController
   end
 
   def update_completed
-    action = Action.find(params[:id])
+    action = Action.find(params[:action_id])
     action.update(completed: !action.completed?)
     render json: prepare_actions
   end
 
   def update_for_today
-    Action.update(params[:id], :date_due => Date.today)
+    Action.update(params[:action_id], :date_due => Date.today)
     render json: prepare_actions
   end
 
   def update_for_future
-    Action.update(params[:id], :date_due => nil)
+    Action.update(params[:action_id], :date_due => nil)
     render json: prepare_actions
   end
 
