@@ -208,10 +208,12 @@
 
 .DayPickerInput {
   display: inline-block;
+
 }
 
 .DayPickerInput-OverlayWrapper {
   position: relative;
+
 }
 
 .DayPickerInput-Overlay {

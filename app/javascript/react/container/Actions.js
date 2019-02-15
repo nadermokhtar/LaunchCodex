@@ -16,7 +16,9 @@ class Actions extends Component {
       key={action.id}
       action={action}
       markComplete={this.props.markComplete}
-      delete= {this.props.delete}
+      delete={this.props.delete}
+      today={this.props.today}
+      future={this.props.future}
       />)
     })
     return(

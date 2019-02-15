@@ -18,7 +18,7 @@
 
 <nav class="top-bar">
   <div class="top-bar-left">
-        <h1 ><a  class="title" href="/"> <i class="fas fa-bolt"></i>LaunchCodex</a></h1>
+        <h1 style="margin-left:30px;"><a  class="title" href="/"> <i class="fas fa-bolt"></i>LaunchCodex</a></h1>
   </div>
 
 
@@ -26,7 +26,7 @@
 
 
   <section class="top-bar-right">
-    <ul class="menu">
+    <ul class="menu" style="margin-right:30px;">
       <%- if current_user -%>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
       <%- else -%>
@@ -43,7 +43,9 @@
   </div>
 <%- end -%>
 
+
 <%= yield %>
+
 
 <%= javascript_include_tag 'application' %>
 

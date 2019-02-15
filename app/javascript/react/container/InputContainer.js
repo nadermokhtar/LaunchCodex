@@ -16,7 +16,7 @@ class InputContainer extends Component {
 
     this.state = {
       body: "",
-      category: "event",
+      category: "task",
       priority: 0,
       date_due: undefined,
       user_id: 1,
@@ -44,7 +44,7 @@ class InputContainer extends Component {
       body: "",
       category: "task",
       priority: 0,
-      date_due: "",
+      date_due: undefined,
       user_id: 1
     });
   }
@@ -92,7 +92,7 @@ class InputContainer extends Component {
             />
           </div>
           <div className="cell shrink">
-            <DayPickerInput
+            <DayPickerInput style={{ height: "2.4375rem"}}
               value={selectedDay}
               onDayChange={this.handleDayChange}
               dayPickerProps={{
@@ -110,7 +110,7 @@ class InputContainer extends Component {
             <BodyField value={this.state.body} handleBodyChange={this.handleBodyChange} />
           </div>
           <div className="cell shrink">
-            <button className="button small">Just do it!</button>
+            <button className="button">Just do it!</button>
           </div>
         </form>
       </div>

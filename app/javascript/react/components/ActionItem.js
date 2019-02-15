@@ -18,29 +18,40 @@ class ActionItem extends Component {
     };
   };
   markComplete= ()=> {
-
     this.props.markComplete(this.props.action.id)
   }
   delete = () => {
     this.props.delete(this.props.action.id)
   }
+  today = () => {
+    this.props.today(this.props.action.id)
+  }
+  future = () => {
+    this.props.future(this.props.action.id)
+  }
   render() {
-    const { id, body, completed, category } = this.props.action;
+    const { id, body, completed, category, priority } = this.props.action;
 
     return (
       <div className="card2">
         <div style={this.getStyle()}>
           <p>
-            <label className="container">
-              <input type="checkbox" onChange={this.markComplete} />
-              <span className="checkmark"></span>
-            </label>
-            <b className="card1">{category}</b> {body}<i className="fas fa-arrow-circle-down"></i>
+
+            <input type="checkbox" onChange={this.markComplete} />
+            {"  "}{" "}{priority}<i className="fas fa-star" style={{ color: 'gold' }}></i> {"  "} | {"  "}
+
+            <b  style={{color: 'red'}}>{category}</b>
+
+              {"  "} | {"  "}{body}{"  "}{" "}{"  "}
+
+            <i className="fas fa-arrow-circle-down" onClick={this.today} style={{ color: 'green' }}></i>
             {completed}
+
             {"  "}{" "}
-            <button onClick={this.delete} className="button alert">
-              <i className="fas fa-trash"></i>
-            </button>
+            <i className="fas fa-arrow-circle-right" onClick={this.future} style={{ color: '#7EC0EE' }} ></i>
+            {"  "}{" "}
+            <i className="fas fa-trash alert" onClick={this.delete} style={{ color: 'red' }} ></i>
+
           </p>
         </div>
       </div>
