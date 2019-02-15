@@ -13,6 +13,7 @@ class App extends Component {
       yesterdayActions: [],
       futureActions: [],
       actions: [ ],
+      view: "today",
       events:[ ],
 
     };
@@ -63,14 +64,12 @@ class App extends Component {
         this.setState({ todayActions: body.todays_actions });
         this.setState({ yesterdayActions: body.yesterday_actions });
         this.setState({ futureActions: body.future_actions });
-        this.setState({
-          actions: this.state.todayActions
-        });
+
       })
   }
 
   markComplete(id) {
-    fetch(`/api/v1/actions/${id}/update_completed`, {
+        fetch(`/api/v1/actions/${id}/update_completed`, {
       method: "PATCH",
       credentials: 'same-origin',
       headers: {
@@ -91,21 +90,12 @@ class App extends Component {
           this.setState({ todayActions: body.todays_actions });
           this.setState({ yesterdayActions: body.yesterday_actions });
           this.setState({ futureActions: body.future_actions });
-          this.setState({
-            actions: this.state.todayActions
-          });
+
         })
-    // this.setState({
-    //   actions: this.state.actions.map(action => {
-    //     if (action.id === id) {
-    //       action.completed = !action.completed;
-    //     }
-    //     return action;
-    //   })
-    // });
+
   }
   future(id) {
-    fetch(`/api/v1/actions/${id}/update_for_future`, {
+        fetch(`/api/v1/actions/${id}/update_for_future`, {
       method: "PATCH",
       credentials: 'same-origin',
       headers: {
@@ -127,14 +117,11 @@ class App extends Component {
         this.setState({ todayActions: body.todays_actions });
         this.setState({ yesterdayActions: body.yesterday_actions });
         this.setState({ futureActions: body.future_actions });
-        this.setState({
-          actions: this.state.todayActions
-        });
       })
 
   }
   today(id) {
-    fetch(`/api/v1/actions/${id}/update_for_today`, {
+        fetch(`/api/v1/actions/${id}/update_for_today`, {
       method: "PATCH",
       credentials: 'same-origin',
       headers: {
@@ -156,15 +143,13 @@ class App extends Component {
         this.setState({ todayActions: body.todays_actions });
         this.setState({ yesterdayActions: body.yesterday_actions });
         this.setState({ futureActions: body.future_actions });
-        this.setState({
-          actions: this.state.todayActions
-        });
+
       })
 
   }
   delete(id){
-    console.log(id);
-    fetch(`/api/v1/actions/${id}`, {
+
+        fetch(`/api/v1/actions/${id}`, {
       method: "DELETE",
       credentials: 'same-origin',
       headers: {
@@ -186,32 +171,39 @@ class App extends Component {
         this.setState({ todayActions: body.todays_actions });
         this.setState({ yesterdayActions: body.yesterday_actions });
         this.setState({ futureActions: body.future_actions });
-        this.setState({
-          actions: this.state.todayActions
-        });
       })
   }
   toggleNow() {
     this.setState({
-      actions: this.state.todayActions
+      view: "today"
     });
   };
   toggleYesterday() {
     this.setState({
-      actions: this.state.yesterdayActions
+      view: "yesterday"
     });
   };
   toggleFuture() {
     this.setState({
-      actions: this.state.futureActions
-    });
-  };
+      view: "future"
+  })
+};
 
 
 
 
   render() {
-    console.log(this.state);
+    let visibleActions
+    if (this.state.view === "yesterday") {
+      visibleActions = this.state.yesterdayActions
+      } else if (this.state.view === "future") {
+        visibleActions = this.state.futureActions
+    } else {
+      visibleActions = this.state.todayActions
+    }
+
+
+
     return (
       <div className="grid-x grid-margin-x align-center bac">
         <div className="cell medium-8 large-8">
@@ -222,7 +214,7 @@ class App extends Component {
           <button className="button" onClick={this.toggleFuture}><i className="fas fa-arrow-circle-right"></i>Attack the Future</button>
 
           <Actions
-            actions={this.state.actions}
+            actions={visibleActions}
             markComplete={this.markComplete}
             delete= {
               this.delete
