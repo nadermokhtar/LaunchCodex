@@ -6,8 +6,9 @@ class Time extends React.Component {
     render() {
 
         return (
-            <div className="card2">
-                <Moment format="YYYY-MM-DD HH:mm"></Moment>
+
+            <div className="cell auto title2">
+                <Moment format=" HH:mm DD-MM-YYYY"></Moment>
             </div>
 
         );
