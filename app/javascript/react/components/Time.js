@@ -8,7 +8,7 @@ class Time extends React.Component {
         return (
 
             <div className="cell auto title2">
-                <Moment format=" HH:mm DD-MM-YYYY"></Moment>
+                Right now: <Moment format=" LT MMM Do YYYY"/>
             </div>
 
         );

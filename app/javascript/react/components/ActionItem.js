@@ -34,25 +34,20 @@ class ActionItem extends Component {
 
     return (
       <div className="card2">
-        <div style={this.getStyle()}>
-          <p>
-
+        < div style={this.getStyle()}>
             <input type="checkbox" onChange={this.markComplete} />
             {"  "}{" "}{priority}<i className="fas fa-star" style={{ color: 'gold' }}></i> {"  "} | {"  "}
-
             <b  style={{color: 'red'}}>{category}</b>
-
               {"  "} | {"  "}{body}{"  "}{" "}{"  "}
-
-            <i className="fas fa-arrow-circle-down" onClick={this.today} style={{ color: 'green' }}></i>
+            <span data-tooltip tabIndex="1" title="Attack this Today" onClick={this.today}><i className="fas fa-bolt"  style={{  color: 'green' }}></i>
+            </span>
             {completed}
-
             {"  "}{" "}
-            <i className="fas fa-arrow-circle-right" onClick={this.future} style={{ color: '#7EC0EE' }} ></i>
+            <span data-tooltip tabIndex="2" title="Plan it Later" onClick={this.future} ><i className="fas fa-lightbulb" style={{ color: '#7EC0EE' }} ></i>
+            </span>
             {"  "}{" "}
-            <i className="fas fa-trash alert" onClick={this.delete} style={{ color: 'red' }} ></i>
-
-          </p>
+            <span data-tooltip tabIndex="3" title="Scrap these Plans" onClick={this.delete} ><i className="fas fa-trash alert" style={{ color: 'red' }} ></i>
+            </span>
         </div>
       </div>
     );

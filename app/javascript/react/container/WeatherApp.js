@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Weather from "../components/Wearther"
 import '../../../assets/stylesheets/Weather.css';
 
-const API_KEY = "c31d034bd01aeb553b868c53771bd742";
-
+const API_KEY = "c31d034bd01aeb553b868c53771bd742"
 
 class WeatherApp extends Component {
   state = {
@@ -15,8 +14,10 @@ class WeatherApp extends Component {
     error: undefined
   }
 
-  componentDidMount() {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=boston&appid=${API_KEY}&units=metric`)
+
+
+  componentWillReceiveProps() {
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.props.coordinates.lat}&lon=${this.props.coordinates.lng}&appid=${API_KEY}&units=imperial`)
     .then(response => response.json())
     .then(body => {
       this.setState({
