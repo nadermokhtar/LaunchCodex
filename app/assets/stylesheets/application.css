@@ -23,7 +23,8 @@ color: #f9aa33
   font-family: 'Kaushan Script', cursive;
 
 		color: #0a0a0a;
-	background: #f9aa33
+	background: #f9aa33;
+	    padding: 10px;
 }
  *{
   font-family: 'Roboto', sans-serif;
@@ -119,4 +120,55 @@ form {
 	input:valid ~ label {
 		transform: scale(0.6);
 	}
+}
+.menu a{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    padding: 0.85em 1em;
+    border: 1px solid transparent;
+    border-radius: 0;
+    -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    font-family: inherit;
+    font-size: 0.9rem;
+    -webkit-appearance: none;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f9aa33;
+    color: #ffffff;
+}
+
+.input a{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    padding: 0.85em 1em;
+    border: 1px solid transparent;
+    border-radius: 0;
+    -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    font-family: inherit;
+    font-size: 0.9rem;
+    -webkit-appearance: none;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f9aa33;
+    color: #ffffff;
+}
+.top-bar ul {
+    background: transparent;
+}
+.secondary {
+	background-color: #4a6572;
+	color:#f9aa33;
+	border-bottom: 2px solid #000000;
+}
+
+.weather {
+	background-color: #4a6572;
+	color:#f9aa33;
+	    padding: 10px;
 }
