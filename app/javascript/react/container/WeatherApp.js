@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Weather from "../components/Wearther"
-import '../../../assets/stylesheets/Weather.css';
 
 const API_KEY = "c31d034bd01aeb553b868c53771bd742"
 
@@ -32,7 +31,7 @@ class WeatherApp extends Component {
 
   render() {
     return (
-      <div >
+      <div  >
         <Weather
           temperature={this.state.temperature}
           city={this.state.city}

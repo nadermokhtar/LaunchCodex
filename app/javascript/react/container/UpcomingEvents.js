@@ -19,7 +19,7 @@ class UpcomingEvents extends Component {
     return (
         <div className="cell auto">
           <h5 className="title2">
-          UpcomingEvents
+          Upcoming Events
         </h5>
           {events}
         </div>

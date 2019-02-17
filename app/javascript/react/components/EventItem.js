@@ -14,7 +14,7 @@ class EventItem extends Component {
     const { id, body, date_due } = this.props.action;
 
     return (
-      <div className="card2">
+      <div className="card2 secondary">
         <div >
 
           {date_due}

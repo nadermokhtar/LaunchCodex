@@ -219,7 +219,8 @@ class App extends Component {
 
 
     return (
-      <div className="grid-x grid-margin-x align-center bac">
+      <div className="master  grid-x grid-margin-x align-center bac">
+
         <div className="cell medium-8 large-8">
           <InputContainer addNewAction={this.addNewAction} />
 
@@ -253,8 +254,9 @@ class App extends Component {
               events={this.state.events}
             />
           </div>
+          </div>
         </div>
-      </div>
+
     );
   }
 }

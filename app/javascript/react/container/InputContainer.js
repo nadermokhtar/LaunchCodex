@@ -51,15 +51,12 @@ class InputContainer extends Component {
     });
   }
   handleCategoryChange(event) {
-    console.log(event.target.value);
     this.setState({ category: event.target.value });
   }
   handlePriorityChange(event) {
-    console.log(event.target.value);
     this.setState({ priority: event.target.value });
   }
   handleBodyChange(event) {
-    console.log(event.target.value);
     this.setState({ body: event.target.value });
   }
   handleDayChange(selectedDay, modifiers, dayPickerInput) {
@@ -77,8 +74,8 @@ class InputContainer extends Component {
 
     return (
 
-      <div className="">
-        <form className="input grid-x" onSubmit={this.handleSubmit}>
+      <div >
+        <form className=" input card2 grid-x" onSubmit={this.handleSubmit}>
           <div data-tooltip tabIndex="5" title="Action Item" className="cell shrink">
             <CategoryField
               content={this.state.category}
