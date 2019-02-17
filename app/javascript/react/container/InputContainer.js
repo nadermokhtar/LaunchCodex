@@ -75,23 +75,23 @@ class InputContainer extends Component {
     return (
 
       <div >
-        <form className=" input card2 grid-x" onSubmit={this.handleSubmit}>
-          <div data-tooltip tabIndex="5" title="Action Item" className="cell shrink">
+        <form className=" card2 grid-x" onSubmit={this.handleSubmit}>
+          <div data-tooltip tabIndex="5" title="Action Item" className="cell shrink material input">
             <CategoryField
               content={this.state.category}
               name="category"
               handleCategoryChange={this.handleCategoryChange}
             />
           </div>
-          <div data-tooltip tabIndex="6" title="How Important is this Action"className="cell shrink">
+          <div data-tooltip tabIndex="6" title="How Important is this Action" className="cell shrink material input ">
             <PriorityField
               content={this.state.priority}
               name="priority"
               handlePriorityChange={this.handlePriorityChange}
             />
           </div>
-          <div className="cell shrink">
-            <DayPickerInput style={{ height: "2.4375rem"}}
+          <div className="cell shrink  material input">
+            <DayPickerInput
               value={selectedDay}
               onDayChange={this.handleDayChange}
               dayPickerProps={{
@@ -105,11 +105,11 @@ class InputContainer extends Component {
             placeholder={this.state.placeholder}
             />
           </div>
-          <div className="cell shrink">
+          <div className="cell shrink material input">
 
             <BodyField value={this.state.body} handleBodyChange={this.handleBodyChange} />
           </div>
-          <div className="cell shrink">
+          <div className="cell shrink material input">
             <button className="button">Just do it!</button>
           </div>
         </form>
