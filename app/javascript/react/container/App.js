@@ -9,6 +9,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentLocation: {
+        lat: 0,
+        lng: 0
+      },
       todayActions: [],
       yesterdayActions: [],
       futureActions: [],
@@ -28,6 +32,16 @@ class App extends Component {
   }
 
   componentDidMount() {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const coords = pos.coords;
+      console.log(coords);
+      this.setState({
+        currentLocation: {
+          lat: coords.latitude,
+          lng: coords.longitude
+        }
+      })
+    })
     fetch("/api/v1/actions")
       .then(response => response.json())
       .then(body => {
@@ -209,9 +223,9 @@ class App extends Component {
         <div className="cell medium-8 large-8">
           <InputContainer addNewAction={this.addNewAction} />
 
-          <button className="button" onClick={this.toggleYesterday}><i className="fas fa-arrow-circle-left"></i>Attack Yesterday</button>
-          <button className="button" onClick={this.toggleNow}> <i className="fas fa-bolt"></i>Attack today</button>
-          <button className="button" onClick={this.toggleFuture}><i className="fas fa-arrow-circle-right"></i>Attack the Future</button>
+          <button className="button" onClick={this.toggleYesterday}><i className="fas fa-arrow-circle-left"></i>Unfinished Yesterday</button>
+          <button className="button" onClick={this.toggleNow}> <i className="fas fa-bolt"></i>Attack Today</button>
+          <button className="button" onClick={this.toggleFuture}><i className="fas fa-lightbulb"></i>To be Planned</button>
 
           <Actions
             actions={visibleActions}
@@ -232,7 +246,7 @@ class App extends Component {
           <Time />
           <br />
           <div className="card2">
-            <WeatherApp />
+            <WeatherApp coordinates={this.state.currentLocation} />
           </div>
           <div className="card2">
             <UpcomingEvents

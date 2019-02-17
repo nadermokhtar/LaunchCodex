@@ -23,6 +23,7 @@ class InputContainer extends Component {
       selectedDay: undefined,
       isEmpty: true,
       isDisabled: false,
+      placeholder: 'To be planned'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
@@ -45,7 +46,8 @@ class InputContainer extends Component {
       category: "task",
       priority: 0,
       date_due: undefined,
-      user_id: 1
+      user_id: 1,
+      placeholder: 'To be planned'
     });
   }
   handleCategoryChange(event) {
@@ -66,7 +68,7 @@ class InputContainer extends Component {
       selectedDay,
       date_due: selectedDay,
       isEmpty: !input.value.trim(),
-      isDisabled: modifiers.disabled === true,
+      isDisabled: modifiers.disabled === true
     });
   }
 
@@ -77,14 +79,14 @@ class InputContainer extends Component {
 
       <div className="">
         <form className="input grid-x" onSubmit={this.handleSubmit}>
-          <div className="cell shrink">
+          <div data-tooltip tabIndex="5" title="Action Item" className="cell shrink">
             <CategoryField
               content={this.state.category}
               name="category"
               handleCategoryChange={this.handleCategoryChange}
             />
           </div>
-          <div className="cell shrink">
+          <div data-tooltip tabIndex="6" title="How Important is this Action"className="cell shrink">
             <PriorityField
               content={this.state.priority}
               name="priority"
@@ -98,15 +100,16 @@ class InputContainer extends Component {
               dayPickerProps={{
                 selectedDays: selectedDay,
                 disabledDays: {
-                  daysOfWeek: [0, 6],
+                  before: new Date(),
                 },
               }}
             formatDate={formatDate}
             parseDate={parseDate}
-            placeholder={`${formatDate(new Date())}`}
+            placeholder={this.state.placeholder}
             />
           </div>
           <div className="cell shrink">
+
             <BodyField value={this.state.body} handleBodyChange={this.handleBodyChange} />
           </div>
           <div className="cell shrink">
