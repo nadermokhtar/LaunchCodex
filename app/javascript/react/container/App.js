@@ -10,8 +10,8 @@ class App extends Component {
     super(props);
     this.state = {
       currentLocation: {
-        lat: 0,
-        lng: 0
+        lat: 42.3601,
+        lng: -71.0589
       },
       todayActions: [],
       yesterdayActions: [],
@@ -221,12 +221,13 @@ class App extends Component {
     return (
       <div className="master  grid-x grid-margin-x align-center bac">
 
-        <div className="cell medium-8 large-8">
+        <div className="cell medium-8 large-8 material ">
           <InputContainer addNewAction={this.addNewAction} />
 
-          <button className="button" onClick={this.toggleYesterday}><i className="fas fa-arrow-circle-left"></i>Unfinished Yesterday</button>
-          <button className="button" onClick={this.toggleNow}> <i className="fas fa-bolt"></i>Attack Today</button>
-          <button className="button" onClick={this.toggleFuture}><i className="fas fa-lightbulb"></i>To be Planned</button>
+            <button className="button " onClick={this.toggleYesterday}><i className="fas fa-arrow-circle-left"></i>Unfinished Yesterday</button>
+            <button className="button" onClick={this.toggleNow}> <i className="fas fa-bolt"></i>Attack Today</button>
+            <button className="button" onClick={this.toggleFuture}><i className="fas fa-lightbulb"></i>To be Planned</button>
+
 
           <Actions
             actions={visibleActions}

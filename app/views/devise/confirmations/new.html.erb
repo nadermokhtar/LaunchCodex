@@ -1,5 +1,5 @@
 <div class="input">
-<h2>Resend confirmation instructions</h2>
+<h2 class="title2">Resend confirmation instructions</h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -12,7 +12,7 @@
   <div class="actions">
     <%= f.submit "Resend confirmation instructions" %>
   </div>
+    <br/>
+  <%= render "devise/shared/links" %>
 <% end %>
-
-<%= render "devise/shared/links" %>
 </div>
