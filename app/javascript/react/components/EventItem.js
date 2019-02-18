@@ -4,10 +4,7 @@ import PropTypes from "prop-types";
 class EventItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
-
+    this.state = {};
   }
 
   render() {
@@ -15,13 +12,11 @@ class EventItem extends Component {
 
     return (
       <div className="card2 secondary">
-        <div >
-
+        <div>
           {date_due}
-
-            {"  "} | {"  "}{body}{"  "}{" "}{"  "}
-
-
+          {"  "} | {"  "}
+          {body}
+          {"  "} {"  "}
         </div>
       </div>
     );
