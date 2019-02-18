@@ -23,7 +23,7 @@ class Actions extends Component {
       );
     });
     return (
-      <div className="grid-x grid-margin-x">
+      <div className="grid-x grid-margin-x ">
         <div className="cell auto">{actions}</div>
       </div>
     );
