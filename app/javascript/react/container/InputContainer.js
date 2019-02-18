@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CategoryField from "../components/CategoryField";
 import PriorityField from "../components/PriorityField";
-import BodyField  from "../components/BodyField"
+import BodyField from "../components/BodyField";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import MomentLocaleUtils, {
@@ -23,13 +23,13 @@ class InputContainer extends Component {
       selectedDay: undefined,
       isEmpty: true,
       isDisabled: false,
-      placeholder: 'To be planned'
+      placeholder: "To be planned"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handlePriorityChange = this.handlePriorityChange.bind(this);
-    this.handleBodyChange = this.handleBodyChange.bind(this)
-    this.handleDayChange = this.handleDayChange.bind(this)
+    this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleDayChange = this.handleDayChange.bind(this);
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -47,7 +47,7 @@ class InputContainer extends Component {
       priority: 0,
       date_due: undefined,
       user_id: 1,
-      placeholder: 'To be planned'
+      placeholder: "To be planned"
     });
   }
   handleCategoryChange(event) {
@@ -73,17 +73,26 @@ class InputContainer extends Component {
     const { selectedDay, isDisabled, isEmpty } = this.state;
 
     return (
-
-      <div >
+      <div>
         <form className=" card2 grid-x" onSubmit={this.handleSubmit}>
-          <div data-tooltip tabIndex="5" title="Action Item" className="cell shrink material input">
+          <div
+            data-tooltip
+            tabIndex="5"
+            title="Action Item"
+            className="cell shrink material input"
+          >
             <CategoryField
               content={this.state.category}
               name="category"
               handleCategoryChange={this.handleCategoryChange}
             />
           </div>
-          <div data-tooltip tabIndex="6" title="How Important is this Action" className="cell shrink material input ">
+          <div
+            data-tooltip
+            tabIndex="6"
+            title="How Important is this Action"
+            className="cell shrink material input "
+          >
             <PriorityField
               content={this.state.priority}
               name="priority"
@@ -97,17 +106,19 @@ class InputContainer extends Component {
               dayPickerProps={{
                 selectedDays: selectedDay,
                 disabledDays: {
-                  before: new Date(),
-                },
+                  before: new Date()
+                }
               }}
-            formatDate={formatDate}
-            parseDate={parseDate}
-            placeholder={this.state.placeholder}
+              formatDate={formatDate}
+              parseDate={parseDate}
+              placeholder={this.state.placeholder}
             />
           </div>
           <div className="cell shrink material input">
-
-            <BodyField value={this.state.body} handleBodyChange={this.handleBodyChange} />
+            <BodyField
+              value={this.state.body}
+              handleBodyChange={this.handleBodyChange}
+            />
           </div>
           <div className="cell shrink material input">
             <button className="button">Just do it!</button>
