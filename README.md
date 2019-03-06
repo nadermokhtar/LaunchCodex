@@ -23,6 +23,8 @@
 www.launchcodex.com redirect to the demo site.
 
 ## upcoming goals 
-- Enzyme testing 
+- code smell and duplication issues (Feedback) 
+- controller testing(Feedback) 
+- Enzyme testing (Feedback) 
 - Google CalDAV api
 - Single imput field useing markdown.
