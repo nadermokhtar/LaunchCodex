@@ -32,7 +32,6 @@ class ActionItem extends Component {
 
   render() {
     const { id, body, completed, category, priority } = this.props.action;
-    console.log(this.props);
     return (
       <div className="card2">
         <div style={this.getStyle()}>

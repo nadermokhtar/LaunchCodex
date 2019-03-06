@@ -36,7 +36,6 @@ class App extends Component {
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(pos => {
       const coords = pos.coords;
-      console.log(coords);
       this.setState({
         currentLocation: {
           lat: coords.latitude,

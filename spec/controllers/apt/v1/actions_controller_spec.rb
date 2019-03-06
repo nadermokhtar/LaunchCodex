@@ -1,25 +1,24 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe Api::V1::ReviewsController, type: :controller do
+RSpec.describe Api::V1::ActionsController, type: :controller do
 #     before(:each) do
-#       Airline.create(name: "American-Airlines", destinations: "Argentina", overall_rating: "5")
+#       Action.create(body:"Get Keys from Kathleen", completed:false, category: "task", priority: 0 , date_due: nil, user_id:1)
 #       User.create(email: "brian.wilson@gmail.com", password: "Boston23!")
-#       Review.create(description: 'Review', price_rating: 4, service_rating: 4, reliability_rating: 5, overall_rating: 4, user: User.last, airline: Airline.last)
 #       sign_in User.last
 #     end
 
-#     it "creates a new review" do
-#       first_airline = Airline.last
+#     it "creates a new Action" do
+#       first_action = Action.last
 #       post_json = {
-#         description: Review.last.description,
-#         price_rating: Review.last.price_rating,
-#         service_rating: Review.last.service_rating,
-#         reliability_rating: Review.last.reliability_rating,
-#         overall_rating: Review.last.overall_rating
+#         body: Action.last.body,
+#         completed: Action.last.completed,
+#         category: Action.last.category,
+#         priority: Action.last.priority,
+#         date_due: Action.last.date_due
 #       }
 
-#       post(:create, params: {user_id: User.last.id, airline_id: Airline.last.id, review: post_json})
-#       expect(Review.count).to eq 1
+#       post(:create, params: {user_id: User.last.id, action: post_json})
+#       expect(Action.count).to eq 1
 
 #     end
 
@@ -42,16 +41,16 @@
 #       expect(Review.count).to eq(prev_count)
 #     end
 
-#     it "returns the json of the new review" do
+#     it "returns the json of the new actions" do
 #       post_json = {
-#         description: Review.last.description,
-#         price_rating: Review.last.price_rating,
-#         service_rating: Review.last.service_rating,
-#         reliability_rating: Review.last.reliability_rating,
-#         overall_rating: Review.last.overall_rating
+#         body: Action.last.body,
+#         completed: Action.last.completed,
+#         category: Action.last.category,
+#         priority: Action.last.priority,
+#         date_due: Action.last.date_due
 #       }
 
-#       post(:create, params: {airline_id: Airline.last.id, user_id: User.last.id, review: post_json})
+#       post(:create, params: { user_id: User.last.id, action: post_json})
 #       returned_json = JSON.parse(response.body)
 #       expect(response.status).to eq 200
 #       expect(response.content_type).to eq("application/json")
@@ -63,4 +62,4 @@
 #       expect(Review.last.overall_rating).to eq 4
 #     end
 
-#   end
+  end
