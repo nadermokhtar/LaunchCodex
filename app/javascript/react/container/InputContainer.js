@@ -47,7 +47,7 @@ class InputContainer extends Component {
       priority: 0,
       date_due: undefined,
       user_id: 1,
-      placeholder: "To be planned"
+      placeholder: "Another one"
     });
   }
   handleCategoryChange(event) {
