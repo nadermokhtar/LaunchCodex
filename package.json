@@ -17,6 +17,10 @@
     "webpack-cli": "4",
     "webpack-merge": "5"
   },
+  "scripts": {
+    "dev": "bin/shakapacker-dev-server",
+    "build": "bin/shakapacker"
+  },
   "version": "0.1.0",
   "babel": {
     "presets": [

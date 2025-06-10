@@ -19,6 +19,13 @@
 - I added moment.js , ZURB Foundation 6, oauth gem, and used a open weather api.
 ## Deployment
 - Deployed to Heroku 
+
+## Running the Development Servers
+To start the development server, ensure you have run `yarn install`.
+Then, in separate terminal windows, run the following commands:
+1. `bundle exec rails s` (starts the Rails server)
+2. `yarn dev` (starts the Shakapacker dev server)
+
 # LaunchCodex
 www.launchcodex.com redirect to the demo site.
 
